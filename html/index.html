@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <script  src="/js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <title>Nautical Creations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,600;1,900&family=Rampart+One&display=swap" rel="stylesheet">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
+</head>
+<body>
+     <header>
+        <nav class="nave">
+            <ul class="site-navigation">
+              <li><img width="260px" src="/img/logo.png" alt="logo"></li>
+              <li><a href="#">Гoловна</a></li>
+              <li><button id="openModal">Створити корабель</button>
+
+                <div id="modal" class="modal">
+                  <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Create Ship</h2>
+                    <form id="shipForm">
+                      <label for="name">Ім'я корабля:</label>
+                      <input type="text" id="name" name="name" autocomplete="off" required><br><br>
+                      
+                      <label for="type">Тип:</label>
+                      <select id="type" name="type" required>
+                        
+                        <option value="passenger">Passenger</option>
+                        <option value="cargo">Cargo</option>
+                      </select><br><br>
+
+                      <div id="lifeboatsContainer"  >
+                        <label for="passengers">Максимальна кількість пасажирів:</label>
+                        <input type="number" min="1" id="passengers" name="passengerCount" autocomplete="off" required><br><br>
+
+                        <label for="lifeboatsCount">Кількість шлюпок:</label>
+                        <input type="number" min="1" id="lifeboatsCount" name="lifeboatsCount" autocomplete="off" required><br><br>
+              
+                        <label for="lifeboatCapacity">Вмістимість шлюпки:</label>
+                        <input type="number" min="1" id="lifeboatCapacity" name="lifeboatCapacity" autocomplete="off" required><br><br>
+                      </div>
+                      <div id="cargoCapacityContainer" style="display: none;" >
+                        <label  for="cargoCapacity" >Вантажопідйомність:</label>
+                        <input type="number" min="1" id="cargoCapacity" name="cargoCapacity" autocomplete="off" required><br><br>
+                      </div>
+                      
+
+                      <label for="enginePower">Потужність двигуна:</label>
+                      <input type="number" min="1" id="enginePower" name="enginePower" autocomplete="off" required><br><br>
+              
+                      <label for="displacement">Водотоннажність:</label>
+                      <input type="number" min="1" id="displacement" name="displacement" autocomplete="off" required><br><br>
+              
+                      <label for="crew">Екіпаж:</label>
+                      <input type="number" min="1" id="crew" name="crew" autocomplete="off" required><br><br>
+              
+                      <label for="homePort">Порт приписки:</label>
+                      <input type="text" id="homePort" name="homePort" autocomplete="off" required><br><br>
+              
+                      <input class="buttonSubmit" id="buttonSubmit" type="button" value="Створити">
+                    </form>
+                  </div>
+                </div></li>
+              <li><a href="#">Про нас</a></li>
+              <li><a href="#">Клієнти</a></li>
+              <li><a href="#">Контакти</a></li>
+            </ul>  
+        </nav>
+     </header>
+    <main class="main">
+      <h1>Вітаємо в Одеському порту!</h1>
+      <section class="about_port">
+        <!-- <h2>Допоможемо обрати ідеальний <br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp корабель</h2> -->
+        <div class="our_port">
+          <p>Ми - сучасний порт, який надає широкий спектр послуг у сфері морського транспорту. Зручно розташований на узбережжі Чорного моря, наш порт є важливим ланцюжком міжнародної торгівлі та перевезень.</p>
+          <img src="/img/port photo.jpg" alt="port photo">
+        </div>
+        <div class="our_mission">
+          <img width="30%" src="/img/safety ship.jpg" alt="safety ship">
+          <p>Наша місія полягає в забезпеченні надійного та ефективного обслуговування суден, пасажирів та вантажів, забезпечуючи безпеку, швидкість та надійність у всіх наших операціях.</p>
+          <img width="30%" src="/img/repair ship.jpg" alt="repair ship">
+        </div>
+      </section>
+      <section class="services">
+        <h2><hr size="5"> &nbsp &nbsp &nbsp Наші послуги включають <hr size="5"> </h2>
+        <div class="block_with_services">
+          <div>
+            <h3> &nbsp &nbsp<img src="/icons/cargo_ship_transport_icon_227565.svg" alt="">&nbsp  Вантажоперевезення</h3>
+            <p>Ми забезпечуємо надійну перевезення різноманітних вантажів, забезпечуючи їх безпеку, ефективну логістику та своєчасну доставку.</p>
+          </div>
+          <div>
+            <h3>
+               &nbsp &nbsp <img width="75" height="75" src="/icons/anchor_sea_icon-icons.com_62707.svg" alt="">&nbsp &nbsp Бункерування</h3>
+            
+            <p>Ми надаємо якісне паливо та інші ресурси для суден, забезпечуючи їх енергетичні потреби та надійну роботу.</p>
+          </div>
+          <div>
+            <h3>&nbsp &nbsp<img src="/icons/setting_settings_wrench_cogwheel_icon_193970.svg" alt=""> &nbsp Ремонт та обслуговування суден</h3>
+            <p>Наші досвідчені технічні команди забезпечують професійний ремонт та планове обслуговування суден різного типу, забезпечуючи їхню надійну експлуатацію та безперебірну роботу.</p>
+          </div>
+          <div>
+            <h3>&nbsp &nbsp<img width="85" height="85" src="/icons/wishlist_product_list_order_cart_icon_225175.svg" alt=""> &nbspЗамовлення судна</h3>
+            <p>Ви можете замовити будь-яке судно, в залежності від ваших потреб</p>
+          </div>
+        </div>
+      </section>
+      <section class=".tables">
+        <table id="shipTable">
+          <tr>
+            <th>Назва</th>
+            <th>Тип</th>
+            <th>Кількість шлюпок</th>
+            <th>Ємність шлюпки</th>
+            <th>вантажо підйомність</th>
+            <th>Потужність двигуна</th>
+            <th>Водото ннажність</th>
+            <th>Екіпаж</th>
+            <th>Порт припискі</th>
+            <th>Максимальна кількість пасажирів</th>
+            <th>Видалити</th>
+            <th>Модифікувати</th>
+          </tr>
+        </table>
+        <!-- HTML код модального вікна -->
+<div id="modal2" class="modal2">
+  <div class="modal-content2">
+    <span class="close2"> </span>
+    <h3>Редагувати корабель</h3>
+    <form id="editShipForm">
+      <!-- Властивості корабля -->
+      <label for="editName">Назва:</label>
+      <input type="text" id="editName" name="editName" value="" required><br>
+
+      <label for="editEnginePower">Потужність двигуна:</label>
+      <input type="number" id="editEnginePower" name="editEnginePower" required><br>
+
+      <label for="editDisplacement">Водотоннажність: </label>
+      <input type="number" id="editDisplacement" name="editDisplacement" required><br>
+
+      <label for="editCrew">Екіпаж:</label>
+      <input type="number" id="editCrew" name="editCrew" required><br>
+
+      <label for="editHomePort">Порт приписки:</label>
+      <input type="text" id="editHomePort" name="editHomePort" required><br>
+
+      <!-- Додаткові властивості для пасажирського корабля -->
+      <div id="editPassengerShipFields" >
+        <label for="editLifeboatsCount">Кількість шлюпок:</label>
+        <input type="number" id="editLifeboatsCount" name="editLifeboatsCount" required><br>
+
+        <label for="editLifeboatCapacity">Ємність шлюпки:</label>
+        <input type="number" id="editLifeboatCapacity" name="editLifeboatCapacity" required><br>
+
+        <label for="editPassengerCount">Максимальна кількість пасажирів:</label>
+        <input type="number" id="editPassengerCount" name="editPassengerCount" required><br>
+      </div>
+
+      <!-- Додаткові властивості для вантажного корабля -->
+      <div id="editCargoShipFields" >
+        <label for="editCargoCapacity">Вантажопідйомність:</label>
+        <input type="number" id="editCargoCapacity" name="editCargoCapacity" required><br>
+      </div>
+
+      <button id="myButton" type="button">Зберегти</button>
+    </form>
+  </div>
+</div>
+
+      </section>
+      <!-- <section class="our_ship">
+        <h2><hr size="5"> &nbsp Наявні варіанти кораблів <hr size="5"> </h2>
+          <div class="ship">
+            <div>
+              <h3>Пасажирський корабель Срібний океан</h3>
+            <p>Потужність двигуна: 2000 кВт</p>
+            <p>Водотонажність: 10000 тонн</p>
+            <p>Кількість пасажирів: 500</p>
+            <p>Кількість шлюпок: 10</p>
+            <p>Вмістимість шлюпки: 50 осіб</p>
+            <p>Екіпаж: 40 осіб</p>
+            <p>Порт припискі:Порт Одеса</p>
+            </div>
+            <div>
+              <img width="500" height="350" src="/img/Ships_p1.jpg" alt="">
+            </div>
+          </div>
+          <div class="ship">
+            <div>
+              <h3>Пасажирський корабель Гармонія моря</h3>
+            <p>Потужність двигуна: 3000 кВт</p>
+            <p>Водотонажність: 15000 тонн</p>
+            <p>Кількість пасажирів: 800</p>
+            <p>Кількість шлюпок: 12</p>
+            <p>Вмістимість шлюпки: 60 осіб</p>
+            <p>Екіпаж: 60 осіб</p>
+            <p>Порт припискі:Порт Южний</p>
+            </div>
+            <div>
+              <img width="500" height="350" src="/img/Ships_p2.jpg" alt="">
+            </div>
+          </div>
+          <div class="ship">
+            <div>
+              <h3>Пасажирський корабель Сонячний круїз</h3>
+            <p>Потужність двигуна: 2500 кВт</p>
+            <p>Водотонажність: 12000 тонн</p>
+            <p>Кількість пасажирів: 600</p>
+            <p>Кількість шлюпок: 15</p>
+            <p>Вмістимість шлюпки: 70 осіб</p>
+            <p>Екіпаж: 45 осіб</p>
+            <p>Порт припискі:Порт Одеса</p>
+            </div>
+            <div>
+              <img width="500" height="300" src="/img/Ships_p3.jpg" alt="">
+            </div>
+          </div>
+          <div class="ship">
+            <div>
+              <h3>Грузовий корабель Морський вовк</h3>
+            <p>Потужність двигуна: 4000 кВт</p>
+            <p>Водотонажність: 20000 тонн</p>
+            <p>Грузопідйомність: 50000 тонн</p>
+            <p>Екіпаж: 15 осіб</p>
+            <p>Порт припискі:Порт Одеса</p>
+            </div>
+            <div>
+              <img width="500" height="300" src="/img/Ships_g1.jpg" alt="">
+            </div>
+          </div>
+          <div class="ship">
+            <div>
+              <h3>Грузовий корабель Морська фортеця</h3>
+            <p>Потужність двигуна: 3500 кВт</p>
+            <p>Водотонажність: 18000 тонн</p>
+            <p>Грузопідйомність: 40000 тонн</p>
+            <p>Екіпаж: 14 осіб</p>
+            <p>Порт припискі:Порт Чорноморськ</p>
+            </div>
+            <div>
+              <img width="500" height="300" src="/img/Ships_g2.jpg" alt="">
+            </div>
+          </div>
+          <div class="ship">
+            <div>
+              <h3>Грузовий корабель Грузовий Титан</h3>
+            <p>Потужність двигуна: 4500 кВт</p>
+            <p>Водотонажність: 22000 тонн</p>
+            <p>Грузопідйомність: 60000 тонн</p>
+            <p>Екіпаж: 19 осіб</p>
+            <p>Порт припискі:Порт  Южний</p>
+            </div>
+            <div>
+              <img width="500" height="300" src="/img/Ships_g3.jpg" alt="">
+            </div>
+          </div>
+        
+      </section> -->
+      <section class="rec">
+        <h2> &nbsp &nbsp Наявні варіанти кораблів </h2>
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <img width="500" height="300" src="/img/Ships_g3.jpg" alt=""><br>
+                <a href="about.html">Грузовий Титан</a>
+              </div>
+              <div class="swiper-slide">
+                <img width="500" height="300" src="/img/Ships_g2.jpg" alt=""><br>
+                <a href="#">Морська фортеця</a>
+              </div>
+              <div class="swiper-slide">
+                <img width="500" height="300" src="/img/Ships_g1.jpg" alt=""><br>
+                <a href="#">Морський вовк</a>
+              </div>
+              <div class="swiper-slide">
+                <img width="500" height="300" src="/img/Ships_p3.jpg" alt=""><br>
+                <a href="#">Сонячний круїз</a>
+              </div>
+              <div class="swiper-slide">
+                <img width="450" height="300" src="/img/Ships_p2.jpg" alt=""><br>
+                <a href="#">Гармонія моря</a>
+              </div>
+              <div class="swiper-slide">
+                <img width="450" height="300" src="/img/Ships_p1.jpg" alt=""><br>
+                <a href="#">Срібний океан</a>
+              </div>
+              
+              
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+          
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+          </div>
+      </section>
+      <section class="order">
+        <h2> &nbsp Замовляй корабель прямо зараз</h2>
+        <!-- Форма з фільтром -->
+<form id="filter-form">
+  <label for="ship-type">Тип корабля:</label>
+  <select id="ship-type" name="ship-type">
+    <option value="all">Усі</option>
+    <option value="passenger">Пасажирські</option>
+    <option value="cargo">Грузові</option>
+  </select>
+
+  <label for="ship-power">Потужність двигуна:</label>
+  <select id="ship-power" name="ship-power">
+    <option value="all">Усі</option>
+    <option value="low">Низька</option>
+    <option value="medium">Середня</option>
+    <option value="high">Висока</option>
+  </select>
+
+  <label for="ship-displacement">Водозміщення:</label>
+  <select id="ship-displacement" name="ship-displacement">
+    <option value="all">Усі</option>
+    <option value="small">Мале</option>
+    <option value="medium">Середнє</option>
+    <option value="large">Велике</option>
+  </select>
+
+  <!-- <label for="people-count">Кількість людей на кораблі:</label>
+  <input type="number" id="people-count" name="people-count" min="0"> -->
+
+  <button type="submit">Фільтрувати</button>
+</form>
+
+<div id="search-results">
+  <h2>Результати пошуку:</h2>
+  <div class="search1">
+    <div id="ship-list">
+      
+    </div>
+  <!-- <button id="select-ship"><input type="number" id="number1" name="number1" min="0">&nbsp Кількість</button> -->
+  </div>
+  
+  <button type="submit" id="order-ship">Обрати</button>
+</div>
+
+<!-- Форма 3: Замовлені кораблі -->
+<div id="order-list">
+  <h2>Ваші кораблі:</h2>
+  <ul id="ordered-ships"></ul>
+  <!-- <button id="add-ship">Додати корабель</button>
+  <button id="remove-ship">Видалити</button> -->
+</div>
+<div id="modal3" class="modal3">
+  <div class="modal-content3">
+    <span class="close3"> </span>
+    <form id="peopleForm">
+      <label for="people-count">Кількість людей на кораблі:</label>
+      <input type="number" id="people-count" name="people-count" min="0">
+
+      <button id="myButton" type="button">Зберегти</button>
+    </form>
+  </div>
+</div>
+<!-- Контейнер для кораблів -->
+<div id="ship-container">
+  <!-- Кораблі -->
+</div>
+
+<!-- Контейнер для результатів -->
+<!-- <div id="results-container">
+  <h2>Результати розрахунку:</h2>
+  <p id="required-lifeboats"></p>
+</div> -->
+
+      </section>
+    </main>
+    <footer>
+      <div>
+        <div class="contact-info">
+          <p>Адреса: вул. Портова 1, м. Одеса</p>
+          <p>Телефон: +380665421984</p>
+          <p>Електронна пошта: <a href="lanevicolga@gmail.com">lanevicolga@gmail.com</a></p>
+        </div>
+        
+        <div class="navigation">
+          <ul>
+            <li><a href="/">Головна сторінка</a></li>
+            <li><a href="/about">Про нас</a></li>
+            <li><a href="/services">Наші послуги</a></li>
+            <li><a href="/fleet">Флот</a></li>
+            <li><a href="/contact">Контакти</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="for_change-image">
+        <img class="img1" width="550" height="190"  src="/img/logo5.png" alt="">
+        
+      </div>
+      <div>
+        <div class="social-media">
+          <h4>Ми в соцмережах</h4>
+          <ul class="network">
+            <li>
+              <a class="social-button" href="https://instagram.com/lanevich_olha?igshid=YmMyMTA2M2Y=">
+                <svg xmlns="http://www.w3.org/2000/svg" width="45px" viewBox="0 0 24 24"><path d="M14.829 6.302c-.738-.034-.96-.04-2.829-.04s-2.09.007-2.828.04c-1.899.087-2.783.986-2.87 2.87-.033.738-.041.959-.041 2.828s.008 2.09.041 2.829c.087 1.879.967 2.783 2.87 2.87.737.033.959.041 2.828.041 1.87 0 2.091-.007 2.829-.041 1.899-.086 2.782-.988 2.87-2.87.033-.738.04-.96.04-2.829s-.007-2.09-.04-2.828c-.088-1.883-.973-2.783-2.87-2.87zm-2.829 9.293c-1.985 0-3.595-1.609-3.595-3.595 0-1.985 1.61-3.594 3.595-3.594s3.595 1.609 3.595 3.594c0 1.985-1.61 3.595-3.595 3.595zm3.737-6.491c-.464 0-.84-.376-.84-.84 0-.464.376-.84.84-.84.464 0 .84.376.84.84 0 .463-.376.84-.84.84zm-1.404 2.896c0 1.289-1.045 2.333-2.333 2.333s-2.333-1.044-2.333-2.333c0-1.289 1.045-2.333 2.333-2.333s2.333 1.044 2.333 2.333zm-2.333-12c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.958 14.886c-.115 2.545-1.532 3.955-4.071 4.072-.747.034-.986.042-2.887.042s-2.139-.008-2.886-.042c-2.544-.117-3.955-1.529-4.072-4.072-.034-.746-.042-.985-.042-2.886 0-1.901.008-2.139.042-2.886.117-2.544 1.529-3.955 4.072-4.071.747-.035.985-.043 2.886-.043s2.14.008 2.887.043c2.545.117 3.957 1.532 4.071 4.071.034.747.042.985.042 2.886 0 1.901-.008 2.14-.042 2.886z"/></svg>
+              </a>
+              </li>
+            <li class="for-social-button">
+              <a class="social-button" href="https://t.me/olha1210"><svg width="45px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z"/></svg></a>
+            </li>
+          </ul>
+        </div>
+        
+        
+        <div class="privacy-policy">
+          <p><a href="/privacy-policy">Політика конфіденційності</a></p>
+        </div>
+        
+        <div class="terms">
+          <p><a href="/terms-of-use">Умови використання</a></p>
+        </div>
+        <div class="copyright">
+          <p>© 2023 Ваш порт. Всі права захищені.</p>
+        </div>
+      </div>
+        
+    </footer>
+    
+</body>
+</html>
